@@ -32,8 +32,6 @@
 \usepackage{graphicx} % Required for including images
 \usepackage{graphbox}
 \usepackage{mathtools}
-% \usepackage{hyperref}
-\usepackage[table]{xcolor}
 \usepackage{colortbl}
 
 \graphicspath{{figures/}} % Directory in which figures are stored
@@ -169,28 +167,60 @@ in the Healthy Brain Network dataset
 \headerbox{Results}{name=results,row=0,column=2,span=4}{
 
 \begin{minipage}[b]{0.5\textwidth}
-\begin{center}
-    Visual analysis of the tract profiles yields no obvious group differences.
-\end{center}
+    \begin{center}
+        Visual analysis of the tract profiles yields no obvious group differences.
+    \end{center}
 
-\begin{Figure}
-    \includegraphics[width=\textwidth]{nles_tract_profiles_fa.pdf}
-    \captionof{figure}{
-        FA bundle profiles show no group differences between NLES quartiles.
-        The $x$-axis is distance along the bundle. Error bands are
-        95\% confidence intervals. Bundle abbreviations have a
-        trailing “L” or “R” for the hemisphere. Bundle abbreviations:
-        inferior fronto-occipital fasciculus (IFO), uncinate (UNC), anterior
-        thalamic radiation (ATR), corticospinal tract (CST), arcuate fasciculus
-        (ARC), superior longitudinal fasciculus (SLF). inferior longitudinal
-        fasciculus (ILF), cingulum cingulate (CGC), orbital corpus callosum
-        (Orbital), anterior frontal corpus callosum (AntFrontal), superior
-        frontal corpus callosum (SupFrontal), motor corpus callosum (Motor),
-        superior parietal corpus callosum (SupParietal), temporal corpus
-        callosum (Temporal), posterior parietal corpus callosum (PostParietal),
-        and occipital corpus callosum (Occipital).
-    }
-\end{Figure}
+    \vspace{-1em}
+
+    \begin{Figure}
+        \includegraphics[width=\textwidth]{nles_tract_profiles_fa.pdf}
+        \captionof{figure}{
+            FA bundle profiles show no group differences between NLES quartiles.
+            The $x$-axis is distance along the bundle. Error bands are
+            95\% confidence intervals. Bundle abbreviations have a
+            trailing “L” or “R” for the hemisphere. Bundle abbreviations:
+            inferior fronto-occipital fasciculus (IFO), uncinate (UNC), anterior
+            thalamic radiation (ATR), corticospinal tract (CST), arcuate fasciculus
+            (ARC), superior longitudinal fasciculus (SLF). inferior longitudinal
+            fasciculus (ILF), cingulum cingulate (CGC), orbital corpus callosum
+            (Orbital), anterior frontal corpus callosum (AntFrontal), superior
+            frontal corpus callosum (SupFrontal), motor corpus callosum (Motor),
+            superior parietal corpus callosum (SupParietal), temporal corpus
+            callosum (Temporal), posterior parietal corpus callosum (PostParietal),
+            and occipital corpus callosum (Occipital).
+        }
+    \end{Figure}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.475\textwidth}
+    \begin{center}
+        Machine learning models fail to classify ELA exposure groups.
+    \end{center}
+
+    \vspace{-1em}
+
+    \begin{Figure}
+        \centering
+        \includegraphics[width=\textwidth]{roc_curve_pcr_lasso.pdf}
+        \captionof{figure}{
+            Machine learning models fail to classify ELA exposure groups,
+            yielding ROC curves that are similar to random guessing.
+        }
+    \end{Figure}
+
+    \begin{center}
+        There are no group differences in brain age gap.
+    \end{center}
+
+    \begin{Figure}
+        \centering
+        \includegraphics[width=0.475\textwidth]{bag-analysis-NLES-events.pdf}
+        \includegraphics[width=0.475\textwidth]{bag-analysis-BSMSS.pdf}
+        \captionof{figure}{
+            ELA and SES groups exhibit no differences in brain age gap.
+        }
+    \end{Figure}
 \end{minipage}
 }
 
@@ -198,7 +228,7 @@ in the Healthy Brain Network dataset
 %	Methods
 %----------------------------------------------------------------------------
 
-\headerbox{Methods}{name=methods,column=0,span=2,below=introduction}{
+\headerbox{Methods}{name=methods,column=0,span=2,below=introduction,above=references}{
 
 \begin{itemize}[nosep, leftmargin=*]
     \item ELA estimated using the self-reported negative life events scale (NLES).
@@ -236,14 +266,10 @@ in the Healthy Brain Network dataset
     \vspace{3em}
 \end{minipage}
 
-\vspace{-1em}
-
 \begin{itemize}[nosep, leftmargin=*]
     \item Group difference assessed \textbf{(1)} as a classification task using
     linear and non-linear models and \textbf{(2)} using brain age gap analysis
 \end{itemize}
-
-\vspace{-1em}
 
 \begin{minipage}[b]{0.35\textwidth}
     \begin{Figure}
@@ -274,18 +300,6 @@ in the Healthy Brain Network dataset
     \end{Figure}
 \end{minipage}
 \vspace{-1em}
-
-% \item To detect complex
-% and non-linear relationships between tissue properties and ELA, we fit a
-% series of gradient boosted random tree models (XGBoost) to predict adversity
-% measures. Models that included white matter tissue properties as predictors
-% demonstrated no additional predictive skill over demographic-only models. In
-% summary, we found no associations between the three adversity measures and
-% white matter integrity as measured by FA in 24 major white matter tracts.
-% Future and ongoing work focuses on detecting accelerated or delayed
-% development through brain age gap analysis. To further establish whether ELA
-% affects WM tissue properties, further research using larger and longitudinal
-% datasets is required.
 }
 
 %----------------------------------------------------------------------------
@@ -296,8 +310,9 @@ in the Healthy Brain Network dataset
 
 \begin{multicols}{2}
 \begin{itemize}[nosep, leftmargin=*]
-    \item We find no associations between exposure to early life adversity and
-    white matter structure in the HBN dataset using three distinct methods
+    \item \textbf{Finding}: we find no associations between exposure to early
+    life adversity and white matter structure in the HBN dataset using three
+    distinct methods
     \begin{itemize}[nosep, leftmargin=*]
         \item ``intraocular'' group differences
         \item classification using advanced linear and non-linear models
