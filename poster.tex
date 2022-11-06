@@ -50,7 +50,7 @@
 
 \begin{poster}{
     columns=6,
-    headerheight=0.09\textheight,
+    headerheight=0.10\textheight,
     borderColor=white, % Border color of content boxes
     headerColorOne=cardinalred, % Background color for the header in the content boxes (left side)
     headerColorTwo=cardinalred, % Background color for the header in the content boxes (middle)
@@ -336,16 +336,21 @@ in the Healthy Brain Network dataset
 
 \headerbox{Acknowledgments}{name=acknowledgments,column=4,span=2,below=discussion,above=bottom}{
 
-\begin{multicols}{2}
 \smaller % Reduce the font size in this block
-\includegraphics[height=1.2cm]{logos/nimh-logo.png}
-\hspace{1em} \includegraphics[height=1.2cm]{logos/SloanLogo.png}
-\includegraphics[height=1.2cm]{logos/MooreFdn.png}
-\hspace{6.5em} \includegraphics[height=1.2cm]{logos/eSciencelogo.png}
-\columnbreak
+\begin{minipage}[b]{0.70\textwidth}
+\begin{minipage}[t]{0.31\textwidth}
+    \centering
+    \includegraphics[height=1.0cm]{logos/nimh-logo.png}
+    \newline {\normalsize 1RF1MH121868-01}
+\end{minipage}
+\hspace{1.5em} \includegraphics[height=1.1cm]{logos/SloanLogo.png}
+\includegraphics[height=1.1cm]{logos/MooreFdn.png}
+\hspace{6em} \includegraphics[height=1.1cm]{logos/eSciencelogo.png}
+\end{minipage}
 \hfill
-\includegraphics[height=2.5cm]{qr.png}
-\end{multicols}
+\begin{minipage}[b]{0.13\textwidth}
+    \includegraphics[height=2.5cm]{qr.png}
+\end{minipage}
 }
 
 %----------------------------------------------------------------------------
