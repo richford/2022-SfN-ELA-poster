@@ -50,7 +50,7 @@
 
 \begin{poster}{
     columns=6,
-    headerheight=0.10\textheight,
+    headerheight=0.095\textheight,
     borderColor=white, % Border color of content boxes
     headerColorOne=cardinalred, % Background color for the header in the content boxes (left side)
     headerColorTwo=cardinalred, % Background color for the header in the content boxes (middle)
@@ -167,12 +167,10 @@ in the Healthy Brain Network dataset
 \headerbox{Results}{name=results,row=0,column=2,span=4}{
 
 \begin{minipage}[b]{0.5\textwidth}
-    \begin{center}
-        No differences found between statistically matched ELA groups \\
-        (p>0.05, FDR corrected for multiple comparisons)
-    \end{center}
-
-    \vspace{-1em}
+    No differences found between statistically matched ELA groups:
+    mass univariate paired t-tests for \texttt{ELA\textasciitilde tract} and
+    per-bundle MANOVA for \texttt{tract\textasciitilde ELA} (both p>0.05,
+    FDR corrected)
 
     \begin{Figure}
         \includegraphics[width=\textwidth]{nles_tract_profiles_fa.pdf}
@@ -315,17 +313,20 @@ in the Healthy Brain Network dataset
     life adversity and white matter structure in the HBN dataset using three
     distinct methods
     \begin{itemize}[nosep, leftmargin=*]
-        \item mass univariate statistical tests (p>0.05, FDR corrected for multiple comparisons)
+        \item statistical tests of group difference (paired t-test and MANOVA)
         \item classification using advanced linear and non-linear models
         \item brain age gap (BAG) analysis
     \end{itemize}
+    \columnbreak
     \item Limitations
     \begin{itemize}[nosep, leftmargin=*]
-        \item As a self-reported, cumulative measure of ELA, NLES may be inadequate.
+        \item As a self-reported, cumulative measure of ELA, NLES may be
+        inadequate, however, threat measurements APQ-CP and CPIC-threat also
+        yielded null results.
         \item Due to HBN's recruitment protocol, comorbidity with other
         psychopathologies is high.
         \item Cross-sectional data are inadequate to capture longitudinal
-        changes due to ELA exposure.
+        changes due to ELA.
     \end{itemize}
 \end{itemize}
 \end{multicols}
